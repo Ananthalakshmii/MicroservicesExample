@@ -1,0 +1,36 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: notification
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+  rabbitmq:
+    addresses: localhost:5672
+   
+    
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+      
+
+  instance:
+    hostname: localhost
+    
+    
+rabbitmq:
+  exchange:
+    internal: internal.exchange #name of the exchange we are givin
+  queue:
+    notification: notification.queue #name of the queue for notification
+  routing-key:
+    internal-notification: internal.notification.routing-key #routing key for binding exchange with queue
+  
+  
+  
+  
+      
